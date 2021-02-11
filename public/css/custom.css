@@ -1,0 +1,37 @@
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+.container {
+  padding: 0% 10%;
+}
+
+.flash {
+  background: rgba(193, 255, 193, .7);
+  color: #625a56;
+  width: 100%;
+  text-align: center;
+  padding: 10px 30px;
+  position: absolute;
+  top: 58px;
+  z-index: 2;
+}
+
+.error {
+  color: #fff;
+  background: rgba(209, 46, 42, 0.7);
+}
+
+.login {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  padding: 10px;
+  background: #c1ffc1;
+  border-radius: 20px;
+}
+
+.border-less {
+  border: none;
+}

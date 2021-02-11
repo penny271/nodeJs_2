@@ -4,8 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
-  <title>Node.js課題1</title>
+  <title>Node.js課題2</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <link rel="stylesheet" href="/css/custom.css">
+
 </head>
 
 <body>
@@ -27,18 +29,50 @@
     <div id="nav-list" class="navbar-menu">
       <div class="navbar-end">
         <div class="navbar-item" style="margin-right: 5rem;">
-          <div class="buttons" >
-            <a class="button" href="/login">
-              Login
-            </a>
-            <a class="button" href="/">
-              Register
-            </a>
+          <div class="buttons">
+            <% if (!loggedIn) { %>
+              <a class="button" href="/login">
+                Login
+              </a>
+              <a class="button" href="/">
+                Register
+              </a>
+            <% } %>
+
+            <!-- ログインしている時は、
+              ログアウトボタンとユーザーネームを表示 -->
+            <% if (loggedIn) { %>
+                <a class="button" href="/logout">
+                  Logout
+                </a>
+
+                <a class="button border-less">
+                  <div class="">
+                    <%= `▼ ${currentUser.name}` %>
+                  </div>
+                </a>
+                <% } %>
           </div>
         </div>
       </div>
     </div>
   </nav>
+
+  <!-- 登録 or ログイン成功時にフラッシュメッセージを表示 -->
+  <div class="flashes">
+    <% if (flashMessages) { %>
+      <% if (flashMessages.success) { %>
+        <div class="flash success">
+          <%= flashMessages.success.join(' / ') %>
+        </div>
+  <!-- 登録 or ログイン失敗時にフラッシュメッセージを表示 -->
+        <% } else if (flashMessages.error) { %>
+          <div class="flash error">
+            <%= flashMessages.error.join(' / ') %>
+          </div>
+          <% } %>
+            <% } %>
+  </div>
 
   <section class="section">
     <%- body %>

@@ -1,9 +1,10 @@
 <section class="section" style="margin: auto;max-width: 900px;">
   <div class="container">
-    <article class="panel is-info">
-      <p class=" panel-heading">
+    <form class="panel is-info" action="/login" method="POST">
+      <p class="panel-heading">
         Login
       </p>
+
       <section class="section" style=" margin: auto;">
         <div class="field is-horizontal px-5">
           <div class="field-label is-normal" style="flex-grow: 1.5;">
@@ -11,7 +12,7 @@
           </div>
           <div class="field-body">
             <div class="field">
-              <input class="input" type="email" placeholder="email">
+              <input class="input" type="email" name="email" placeholder="email" autofocus>
             </div>
           </div>
         </div>
@@ -23,7 +24,7 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input class="input" type="email" placeholder="password">
+                <input class="input" type="password" name="password" placeholder="password">
               </div>
             </div>
           </div>
@@ -34,10 +35,10 @@
           <div class="field-label is-normal " style="flex-grow: 1.5;">
           </div>
           <div class="field-body">
-            <button class="button is-info">Login</button>
+            <button class="button is-info" type="submit">Login</button>
           </div>
         </div>
       </section>
-    </article>
+    </form>
   </div>
 </section>
